@@ -1,8 +1,11 @@
+import axios from 'axios';
+
+const url = 'https://jsonplaceholder.typicode.com/todos';
+
 export default {
-    getItems: () => {
-        return fetch('https://xxx.api/article')
-            .then(res => res.json());
-    },
-    otherApiCall: (params) => {
-    }
+    getAll: () => axios.get(url),
+    // getOne: ({ id }) => axios.get(`${url}/${id}`),
+    // update: (toUpdate) => axios.put(url, toUpdate),
+    // create: (toCreate) => axios.put(url, toCreate),
+    // delete: ({ id }) => axios.delete(`${url}/${id}`)
 }

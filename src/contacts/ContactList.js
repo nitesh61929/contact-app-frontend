@@ -2,8 +2,6 @@ import React from 'react';
 import ContactRow from './ContactRow';
 
 const ContactList = (props) => {
-
-
     return (
         <table className="table table-dark table-striped">
             <thead>

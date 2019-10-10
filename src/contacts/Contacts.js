@@ -1,27 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import ContactList from './ContactList';
-
+import API from '../common/APIUtils';
 
 const Contacts = () => {
     const [contacts, setContacts] = useState([]);
 
-
-
     useEffect(() => {
-        const contactsArr = [
-            {
-                name: 'nitesh',
-                address: 'nayabazar'
-            },
-            {
-                name: 'ram',
-                address: 'khusibun'
+        const fetchData = async () => {
+            try {
+                let res = await API.getAll();
+                setContacts(res.data);
+            } catch (err) {
+                alert(err);
             }
-        ]
-        setContacts(contactsArr);
+        };
+        fetchData();
     }, []);
-
-
 
     return (
         <ContactList contacts={contacts} />
